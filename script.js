@@ -11,6 +11,9 @@ const calculator = {
 	divide: function(x, y) {
 		return x / y;
 	},
+	operate: function(operator, x, y) {
+		return this.operator(x, y);
+	}
 };
 
 console.log(calculator.add(1, 2));
