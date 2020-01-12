@@ -34,7 +34,11 @@ buttons.forEach(button => {
 			displayValue = currentNumber;
 			screen.textContent = displayValue;
 
-		// Handle clicks on non-number buttons
+		// Handle clicks on clear button
+		} else if (buttonClicked.id === "clear") {
+			calculator.clear();
+
+		// Handle clicks on operator buttons
 		} else {
 			if (currentNumber) {
 				currentOperation.push(currentNumber);
@@ -62,6 +66,13 @@ const calculator = {
 	},
 	operate: function(operator, x, y) {
 		return operator(x, y);
+	},
+	clear: function() {
+		currentOperation = [];
+		currentNumber = "";
+		displayValue = "";
+		screen.textContent = "0";
+		console.log("You cleared!");
 	}
 };
 
